@@ -1,12 +1,20 @@
 body {
     font-family: 'Comic Sans MS', sans-serif;
-    background-color: #fff4e6;
+    background: linear-gradient(45deg, #FFD700, #FF4500);
     text-align: center;
     padding: 50px;
+    color: #333;
+}
+
+h1 {
+    color: #FF4500;
+    text-shadow: 2px 2px #FFD700;
+    font-size: 3em;
+    animation: bounce 2s infinite;
 }
 
 button {
-    background-color: #ffcc00;
+    background-color: #FF4500;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -16,9 +24,39 @@ button {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    background-color: #FFD700;
+    transform: scale(1.1);
 }
 
 .joke {
     font-size: 24px;
     margin: 20px;
+    background-color: #FFD700; /* Couleur de fond pour correspondre au thème */
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #00BFFF;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+    font-weight: bold; /* Police en gras */
+    color: #FFFFFF; /* Couleur de texte blanche pour un meilleur contraste */
+}
+
+.joke:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
 }
