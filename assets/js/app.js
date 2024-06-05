@@ -2,7 +2,7 @@ let currentJoke = {};
 
 async function getJoke() {
     try {
-        const response = await fetch('http://localhost:3000/api/jokes/random');  // Remplacez par l'URL de votre back-end
+        const response = await fetch('https://carambarback-0t3e.onrender.com/api/jokes/random');  // Remplacez par l'URL de votre back-end
         currentJoke = await response.json();
         document.getElementById('joke').innerHTML = currentJoke.question;
     } catch (error) {
