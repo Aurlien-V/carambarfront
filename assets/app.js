@@ -1,19 +1,13 @@
 let currentJoke = {};
 
 async function getJoke() {
-    // Afficher le loader
-    document.getElementById('loader').style.display = 'block';
-
     try {
-        const response = await fetch('https://carambarback-0t3e.onrender.com/api/jokes/random');
+        const response = await fetch('https://carambarback-0t3e.onrender.com/api/jokes/random');  // Remplacez par l'URL de votre back-end
         currentJoke = await response.json();
         document.getElementById('joke').innerHTML = currentJoke.question;
     } catch (error) {
         console.error('Error fetching joke:', error);
         document.getElementById('joke').innerHTML = 'Erreur lors de la récupération de la blague. Veuillez réessayer.';
-    } finally {
-        // Cacher le loader
-        document.getElementById('loader').style.display = 'none';
     }
 }
 
