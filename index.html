@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blagues Carambar</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Blagues Carambar</h1>
-        <div id="joke-container">
-            <p id="joke">Cliquez sur le bouton pour une nouvelle blague!</p>
-        </div>
-        <button id="new-joke-button">Nouvelle Blague</button>
-    </div>
-    <script src="assets/app.js"></script>
+    <h1>Blagues Carambar</h1>
+    <div id="joke" class="joke">Cliquez sur un bouton pour une blague</div>
+    <button onclick="getJoke()">Nouvelle Devinette</button>
+    <button onclick="showAnswer()">Voir la Réponse</button>
+
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
