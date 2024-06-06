@@ -1,24 +1,13 @@
 let currentJoke = {};
 
 async function getJoke() {
-    const loadingElement = document.getElementById('loading');
-    const jokeElement = document.getElementById('joke');
-
-    // Afficher l'animation de chargement
-    loadingElement.style.display = 'block';
-    jokeElement.style.display = 'none';
-
     try {
         const response = await fetch('https://carambarback-0t3e.onrender.com/api/jokes/random');  // Remplacez par l'URL de votre back-end
         currentJoke = await response.json();
-        jokeElement.innerHTML = currentJoke.question;
+        document.getElementById('joke').innerHTML = currentJoke.question;
     } catch (error) {
         console.error('Error fetching joke:', error);
-        jokeElement.innerHTML = 'Erreur lors de la récupération de la blague. Veuillez réessayer.';
-    } finally {
-        // Masquer l'animation de chargement et afficher la blague
-        loadingElement.style.display = 'none';
-        jokeElement.style.display = 'block';
+        document.getElementById('joke').innerHTML = 'Erreur lors de la récupération de la blague. Veuillez réessayer.';
     }
 }
 
