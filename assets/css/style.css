@@ -60,3 +60,22 @@ button:hover {
         transform: translateY(-15px);
     }
 }
+
+/* Animation de chargement */
+.loading {
+    font-size: 24px;
+    margin: 20px;
+    background-color: #FFD700;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #FF4500;
+    font-weight: bold;
+    color: #333;
+    display: none; /* Masqué par défaut */
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
