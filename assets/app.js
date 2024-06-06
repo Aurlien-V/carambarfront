@@ -1,10 +1,26 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const jokeContainer = document.getElementById('joke');
-    const newJokeButton = document.getElementById('new-joke-button');
+let currentJoke = {};
 
-    newJokeButton.addEventListener('click', async () => {
-        const response = await fetch('http://localhost:3000/api/jokes/random');
-        const data = await response.json();
-        jokeContainer.innerText = data.joke;
-    });
-});
+async function getJoke() {
+    // Afficher le loader
+    document.getElementById('loader').style.display = 'block';
+
+    try {
+        const response = await fetch('https://carambarback-0t3e.onrender.com/api/jokes/random');
+        currentJoke = await response.json();
+        document.getElementById('joke').innerHTML = currentJoke.question;
+    } catch (error) {
+        console.error('Error fetching joke:', error);
+        document.getElementById('joke').innerHTML = 'Erreur lors de la récupération de la blague. Veuillez réessayer.';
+    } finally {
+        // Cacher le loader
+        document.getElementById('loader').style.display = 'none';
+    }
+}
+
+function showAnswer() {
+    if (currentJoke.answer) {
+        document.getElementById('joke').innerHTML += `<br><br>${currentJoke.answer}`;
+    } else {
+        alert('Cliquez d\'abord sur "Nouvelle Devinette" pour obtenir une blague.');
+    }
+}
